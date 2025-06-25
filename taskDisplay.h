@@ -120,25 +120,21 @@ void taskDisplay(void *){
   display.setTextSize(1);      // Tamaño del texto
   display.setTextColor(SSD1306_WHITE);
   display.setCursor(0, 0);     // Coordenadas (x,y)
-  /*display.printf("Hora: %02d:%02d:%02d.%03d\n", gpsData.hora, gpsData.minuto, gpsData.segundo, gpsData.milisegundos);
-  display.printf("Fecha: %04d/%02d/%02d\n", gpsData.agno, gpsData.mes, gpsData.dia);
-
+  /*
   display.printf("Lt:%.4f/", gpsData.lat);display.printf("Ln:%.4f\n", gpsData.lon);
-  display.printf("Sat:%d/", sats); display.printf("HDOP:%.3f\n",hdops);
   display.printf("Vel:%.2f/", gpsData.speed);  display.printf("Ele:%.2f\n", gpsData.ele);
   display.printf("Dir:%.2f/", gpsData.course);display.printf("Km:%.2f\n", distanciaTotalKm);
     display.printf("Buffer A: %d / %d\n", bufferIndexA, BUFFER_SIZE);
      display.printf("Buffer B: %d / %d\n", bufferIndexB, BUFFER_SIZE);*/
+display.printf("Hora: %02d:%02d:%02d.%03d\n", gpsData.hora, gpsData.minuto, gpsData.segundo, gpsData.milisegundos);
+  display.printf("Fecha: %04d/%02d/%02d\n", gpsData.agno, gpsData.mes, gpsData.dia);
+  display.printf("Sat:%d/", sats); display.printf("HDOP:%.3f\n",hdops);
 
-       display.printf("SD: %s", sdReady ? "OK" : "FALLO");
-  display.printf("BD: %s\n", dbReady ? "OK" : "FALLO");
-  display.printf("ICM: %s\n", icmReady ? "OK" : "FALLO");
-  display.printf("Bd Corrupta: %s\n", bdCorrupta ? "SI" : "NO");
-   display.printf("Buffer listo: %s\n", bufferReadyForSD ? "SI" : "NO");
-
+       display.printf("SD: %s / ", sdReady ? "OK" : "FALLO");  display.printf("BD: %s\n", dbReady ? "OK" : "FALLO");
+   display.printf("Buf?: %s", bufferReadyForSD ? "SI" : "NO");display.printf("En Mov: %s\n", estaEnMovimiento ? "Si":"No");
   display.printf("Buffer A: %d / %d\n", bufferIndexA, BUFFER_SIZE);
   display.printf("Buffer B: %d / %d\n", bufferIndexB, BUFFER_SIZE);
-  display.printf("FIX: %s / \n", fixValido ? "SI" : "No"); 
+  display.printf("FIX: %s / ", fixValido ? "SI" : "No"); display.printf("Desc: %d\n",desconexion);
 
   display.display();           // Mostrar contenido
         vTaskDelay(pdMS_TO_TICKS(300));

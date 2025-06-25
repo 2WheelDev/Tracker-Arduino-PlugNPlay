@@ -375,7 +375,7 @@ strip.setBrightness(255);
       fixValido=true; 
       procesarGPS();
       totalMuestrasGPS++;
-    vTaskDelay(pdMS_TO_TICKS(200));
+    vTaskDelay(pdMS_TO_TICKS(75));
     }
     else{
 //Serial.println("Esperando señal de gps");
